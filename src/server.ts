@@ -4,6 +4,7 @@ import { ZodTypeProvider, jsonSchemaTransform, serializerCompiler, validatorComp
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import { createLink } from "./http/routes/create-link";
+import { listLinks } from "./http/routes/list-links";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -25,6 +26,7 @@ app.register(fastifySwaggerUi, {
 })
 
 app.register(createLink)
+app.register(listLinks)
 
 app.listen({
     port: env.PORT
