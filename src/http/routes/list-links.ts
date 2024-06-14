@@ -4,7 +4,7 @@ import { z } from "zod";
 import { sql } from "../../lib/postgres";
 
 const linkSchema = z.object({
-    id: z.number(),
+    id: z.string().uuid(),
     code: z.string(),
     origin_url: z.string().url(),
     created_at: z.date()

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { redis } from "../../lib/redis";
 
 const metricSchema = z.object({
-    shortLinkId: z.number(),
+    shortLinkId: z.string().uuid(),
     clicks: z.number(),
 });
 
@@ -37,7 +37,7 @@ export async function metrics(app: FastifyInstance) {
             .sort((a, b) => b.score - a.score)
             .map((item) => {
                 return {
-                    shortLinkId: Number(item.value),
+                    shortLinkId: item.value,
                     clicks: item.score,
                 }
             })

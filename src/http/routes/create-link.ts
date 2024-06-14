@@ -17,7 +17,7 @@ export async function createLink(app: FastifyInstance) {
                 }),
                 response: {
                     201: z.object({
-                        shortLinkId: z.number()
+                        shortLinkId: z.string().uuid()
                     }),
                     400: z.object({
                         message: z.string()
