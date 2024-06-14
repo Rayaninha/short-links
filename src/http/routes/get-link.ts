@@ -11,7 +11,7 @@ export async function getLink(app: FastifyInstance) {
         {
             schema: {
                 tags: ['Link'],
-                summary: 'get link',
+                summary: 'Get link by code',
                 params: z.object({
                     code: z.string().min(3)
                 }),

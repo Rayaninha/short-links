@@ -21,9 +21,9 @@ export async function listLinks(app: FastifyInstance) {
         {
             schema: {
                 tags: ['Link'],
-                summary: 'List links',
+                summary: 'List all links',
                 response: {
-                    201: responseSchema,
+                    200: responseSchema,
                     400: z.object({
                         message: z.string()
                     }),
