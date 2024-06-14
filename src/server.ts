@@ -5,6 +5,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import { createLink } from "./http/routes/create-link";
 import { listLinks } from "./http/routes/list-links";
+import { getLink } from "./http/routes/get-link";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -27,6 +28,7 @@ app.register(fastifySwaggerUi, {
 
 app.register(createLink)
 app.register(listLinks)
+app.register(getLink)
 
 app.listen({
     port: env.PORT
