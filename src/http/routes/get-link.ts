@@ -7,7 +7,7 @@ import { redis } from "../../lib/redis";
 export async function getLink(app: FastifyInstance) {
     app
     .withTypeProvider<ZodTypeProvider>()
-    .get('/:code',
+    .get('/api/:code',
         {
             schema: {
                 tags: ['Link'],
